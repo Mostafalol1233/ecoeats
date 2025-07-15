@@ -89,49 +89,124 @@ body {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #2d5a3d 0%, #4a7c59 100%);
+    background: radial-gradient(circle at center, #1a3329 0%, #2d5a3d 50%, #0f1a15 100%);
     color: white;
-    padding: 120px 0 80px;
+    padding: 0;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-background-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(106, 13, 173, 0.3) 0%, rgba(106, 13, 173, 0.1) 40%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulseGlow 4s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+    50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.6; }
 }
 
 .hero-content {
     max-width: 800px;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    animation: fadeInUp 1.5s ease-out;
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(50px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
 
 .logo-circle {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     background: linear-gradient(45deg, #ffd700, #ffed4a);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    margin: 0 auto 40px;
+    box-shadow: 
+        0 0 30px rgba(255, 215, 0, 0.5),
+        0 0 60px rgba(255, 215, 0, 0.3),
+        0 0 100px rgba(255, 215, 0, 0.1);
+    animation: neonPulse 3s ease-in-out infinite;
+    position: relative;
+    border: 3px solid #ffd700;
+}
+
+@keyframes neonPulse {
+    0%, 100% { 
+        box-shadow: 
+            0 0 30px rgba(255, 215, 0, 0.5),
+            0 0 60px rgba(255, 215, 0, 0.3),
+            0 0 100px rgba(255, 215, 0, 0.1);
+    }
+    50% { 
+        box-shadow: 
+            0 0 50px rgba(255, 215, 0, 0.8),
+            0 0 100px rgba(255, 215, 0, 0.5),
+            0 0 150px rgba(255, 215, 0, 0.3);
+    }
 }
 
 .logo-circle img {
-    width: 100px;
-    height: 100px;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
 }
 
 .hero-title {
-    font-size: 3.5rem;
+    font-size: 4.5rem;
     font-weight: 700;
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 3px;
+    animation: scaleIn 1s ease-out 0.5s both;
+}
+
+@keyframes scaleIn {
+    0% { opacity: 0; transform: scale(0.5); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.hero-subtitle {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #ffd700;
+    animation: slideInLeft 1s ease-out 0.8s both;
+}
+
+@keyframes slideInLeft {
+    0% { opacity: 0; transform: translateX(-50px); }
+    100% { opacity: 1; transform: translateX(0); }
 }
 
 .hero-slogan {
     font-size: 1.8rem;
     margin-bottom: 10px;
     font-weight: 400;
+    animation: slideInRight 1s ease-out 1s both;
+}
+
+@keyframes slideInRight {
+    0% { opacity: 0; transform: translateX(50px); }
+    100% { opacity: 1; transform: translateX(0); }
 }
 
 .hero-slogan-ar {
@@ -139,6 +214,7 @@ body {
     margin-bottom: 40px;
     opacity: 0.9;
     font-weight: 400;
+    animation: slideInRight 1s ease-out 1.2s both;
 }
 
 .hero-buttons {
@@ -146,6 +222,12 @@ body {
     gap: 20px;
     justify-content: center;
     flex-wrap: wrap;
+    animation: fadeIn 1s ease-out 1.5s both;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 .btn {
@@ -267,6 +349,18 @@ body {
 .stat-ar {
     font-size: 0.9rem;
     opacity: 0.8;
+}
+
+.chart-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.chart-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Why Food Waste Matters */
@@ -546,6 +640,20 @@ body {
     color: #666;
     line-height: 1.6;
     font-size: 0.9rem;
+}
+
+.placeholder-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2d5a3d, #4a7c59);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ffd700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* Contact */
