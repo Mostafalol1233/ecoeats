@@ -1541,7 +1541,10 @@ body {
     color: #1a1a1a;
 }
 
-.dark-theme .tip-icon i,
+.dark-theme .tip-icon i {
+    color: #b8860b;
+}
+
 .dark-theme .matter-icon i {
     color: #1a1a1a;
 }
