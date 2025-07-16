@@ -85,6 +85,27 @@ body {
     text-shadow: 0 2px 4px rgba(45, 90, 61, 0.2);
 }
 
+.theme-toggle {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+.theme-toggle:hover {
+    background-color: rgba(45, 90, 61, 0.1);
+    transform: scale(1.1);
+}
+
 .hamburger {
     display: none;
     flex-direction: column;
@@ -1026,6 +1047,11 @@ body {
         padding: 20px 0;
     }
 
+    .dark-theme .nav-menu {
+        background-color: #2a2a2a;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.3);
+    }
+
     .nav-menu.active {
         left: 0;
     }
@@ -1191,6 +1217,187 @@ body {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
+}
+
+/* Dark Theme */
+.dark-theme {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+
+.dark-theme .navbar {
+    background: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.dark-theme .nav-logo,
+.dark-theme .nav-menu a {
+    color: #e0e0e0;
+}
+
+.dark-theme .nav-menu a:hover {
+    color: #b8860b;
+}
+
+.dark-theme .theme-toggle {
+    color: #e0e0e0;
+}
+
+.dark-theme .theme-toggle:hover {
+    background-color: rgba(184, 134, 11, 0.1);
+}
+
+.dark-theme .hamburger span {
+    background-color: #e0e0e0;
+}
+
+.dark-theme .hero {
+    background: radial-gradient(circle at center, #0f1419 0%, #1a2329 50%, #0a0f12 100%);
+}
+
+.dark-theme .section {
+    background-color: #1a1a1a;
+}
+
+.dark-theme .section-alt {
+    background-color: #2a2a2a;
+}
+
+.dark-theme .section-title {
+    color: #b8860b;
+}
+
+.dark-theme .section-title-ar {
+    color: #a0a0a0;
+}
+
+.dark-theme .logo-circle {
+    background: linear-gradient(45deg, #b8860b, #daa520);
+    border-color: #b8860b;
+    box-shadow: 
+        0 0 30px rgba(184, 134, 11, 0.5),
+        0 0 60px rgba(184, 134, 11, 0.3),
+        0 0 100px rgba(184, 134, 11, 0.1);
+}
+
+.dark-theme .btn-primary {
+    background-color: #b8860b;
+    color: #1a1a1a;
+}
+
+.dark-theme .btn-primary:hover {
+    background-color: #daa520;
+    box-shadow: 0 8px 25px rgba(184, 134, 11, 0.6);
+}
+
+.dark-theme .btn-secondary {
+    border-color: #e0e0e0;
+    color: #e0e0e0;
+}
+
+.dark-theme .btn-secondary:hover {
+    background-color: #e0e0e0;
+    color: #1a1a1a;
+}
+
+.dark-theme .stat-card {
+    background: linear-gradient(135deg, #2a4a3a, #3a5a4a);
+}
+
+.dark-theme .matter-card,
+.dark-theme .tip-card,
+.dark-theme .team-member,
+.dark-theme .contact-form {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+}
+
+.dark-theme .matter-card:hover,
+.dark-theme .tip-card:hover,
+.dark-theme .team-member:hover {
+    background: linear-gradient(135deg, #2a2a2a 0%, #333333 100%);
+}
+
+.dark-theme .matter-icon {
+    background: linear-gradient(135deg, #b8860b, #daa520);
+}
+
+.dark-theme .matter-card h3,
+.dark-theme .tip-card h3,
+.dark-theme .team-member h3,
+.dark-theme .contact-info h3 {
+    color: #b8860b;
+}
+
+.dark-theme .tip-number {
+    background: linear-gradient(135deg, #b8860b, #daa520);
+    color: #1a1a1a;
+}
+
+.dark-theme .tip-icon i,
+.dark-theme .matter-icon i {
+    color: #1a1a1a;
+}
+
+.dark-theme .gallery-item {
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.dark-theme .gallery-item:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+}
+
+.dark-theme .team-role {
+    color: #b8860b;
+}
+
+.dark-theme .contact-item i {
+    color: #b8860b;
+}
+
+.dark-theme .form-group label {
+    color: #b8860b;
+}
+
+.dark-theme .form-group input,
+.dark-theme .form-group textarea {
+    background-color: #333333;
+    border-color: #555555;
+    color: #e0e0e0;
+}
+
+.dark-theme .form-group input:focus,
+.dark-theme .form-group textarea:focus {
+    border-color: #b8860b;
+}
+
+.dark-theme .footer {
+    background-color: #1a1a1a;
+}
+
+.dark-theme .footer-links a:hover,
+.dark-theme .footer-social a:hover {
+    color: #b8860b;
+}
+
+.dark-theme .content-text,
+.dark-theme .about-text,
+.dark-theme .contact-info p,
+.dark-theme .matter-card p,
+.dark-theme .tip-card p,
+.dark-theme .team-member p {
+    color: #c0c0c0;
+}
+
+.dark-theme .content-text-ar,
+.dark-theme .about-text-ar,
+.dark-theme .contact-info-ar,
+.dark-theme .matter-text-ar,
+.dark-theme .tip-text-ar,
+.dark-theme .matter-title-ar,
+.dark-theme .tip-title-ar,
+.dark-theme .team-role-ar {
+    color: #a0a0a0;
 }
 
 /* Print Styles */
