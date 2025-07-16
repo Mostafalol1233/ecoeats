@@ -8,20 +8,25 @@ Eco Eats is a static website focused on raising awareness about food waste. The 
 
 Preferred communication style: Simple, everyday language.
 
-## Recent Changes (July 15, 2025)
+## Recent Changes (July 16, 2025)
 
-- Updated hero section with modern design featuring vibrant green gradient background
-- Added purple radial glow effect with pulsing animation in hero section
-- Implemented "ONE TEAM" as main hero title with smooth scale-in animation
-- Replaced logo references with uploaded logo asset (file_00000000fa9061f482165a5546f2eedb_1752623499007.png)
-- Added food waste statistics chart from uploaded diagram
-- Updated contact information to mostafa@gmail.com and phone 01500302461
-- Replaced team member photos with simple placeholder avatars (M, M, G)
-- Added Vercel deployment configuration (vercel.json)
-- Enhanced SEO with proper meta tags and Open Graph properties
-- Improved JavaScript with error handling and DOM ready checks
-- Added image preloading for better performance
-- Optimized CSS with performance improvements and accessibility features
+- Removed "ONE TEAM" text from hero section as requested
+- Added extensive CSS animations throughout the website including:
+  - Typewriter effect for hero title
+  - Glow and shimmer effects for text
+  - Floating leaf elements in hero background
+  - Slide-down animation for navigation bar
+  - Staggered animations for content cards
+  - Bounce effects for icons and hover states
+  - Zoom animations for gallery items
+- Replaced plastic bottle images in gallery with food-related images from Unsplash
+- Updated gallery with 6 new food-focused images about waste prevention
+- Fixed CSS path reference for deployment compatibility (added ./ prefix)
+- Enhanced mobile responsiveness with proper hamburger menu functionality
+- Added comprehensive JavaScript for smooth scrolling and form handling
+- Improved performance with image preloading and optimized animations
+- Added accessibility features including reduced motion preferences
+- Resolved deployment styling issues for better Vercel compatibility
 
 ## System Architecture
 
