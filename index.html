@@ -378,6 +378,16 @@
     <script>
         // Wait for DOM to be fully loaded
         document.addEventListener('DOMContentLoaded', function() {
+            // Check if Font Awesome is loaded
+            const testIcon = document.createElement('i');
+            testIcon.className = 'fas fa-test';
+            document.body.appendChild(testIcon);
+            const iconLoaded = window.getComputedStyle(testIcon, ':before').content !== 'none';
+            document.body.removeChild(testIcon);
+            
+            if (!iconLoaded) {
+                console.warn('Font Awesome may not be loaded properly');
+            }
             // Mobile menu toggle
             const hamburger = document.querySelector('.hamburger');
             const navMenu = document.querySelector('.nav-menu');
@@ -421,28 +431,51 @@
                 });
             }
 
-            // Dark mode toggle functionality
+            // Dark mode toggle functionality with error handling
             const themeToggle = document.getElementById('themeToggle');
             const body = document.body;
             
-            // Check for saved theme preference or default to light mode
-            const currentTheme = localStorage.getItem('theme') || 'light';
-            if (currentTheme === 'dark') {
-                body.classList.add('dark-theme');
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-            }
-
-            themeToggle.addEventListener('click', function() {
-                body.classList.toggle('dark-theme');
-                
-                if (body.classList.contains('dark-theme')) {
+            if (themeToggle) {
+                // Check for saved theme preference or default to light mode
+                const currentTheme = localStorage.getItem('theme') || 'light';
+                if (currentTheme === 'dark') {
+                    body.classList.add('dark-theme');
                     themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-                    localStorage.setItem('theme', 'dark');
-                } else {
-                    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-                    localStorage.setItem('theme', 'light');
                 }
-            });
+
+                themeToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    try {
+                        body.classList.toggle('dark-theme');
+                        
+                        if (body.classList.contains('dark-theme')) {
+                            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                            localStorage.setItem('theme', 'dark');
+                            console.log('Switched to dark theme');
+                        } else {
+                            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                            localStorage.setItem('theme', 'light');
+                            console.log('Switched to light theme');
+                        }
+                    } catch (error) {
+                        console.error('Error switching theme:', error);
+                    }
+                });
+                
+                // Add visual feedback on click
+                themeToggle.addEventListener('mousedown', function() {
+                    this.style.transform = 'scale(0.9)';
+                });
+                
+                themeToggle.addEventListener('mouseup', function() {
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            } else {
+                console.error('Theme toggle button not found');
+            }
 
             // Preload critical images for better performance
             const criticalImages = [

@@ -131,6 +131,21 @@ body {
     transform: scale(0.95);
 }
 
+.theme-toggle:focus {
+    outline: 3px solid rgba(255, 215, 0, 0.5);
+    outline-offset: 2px;
+}
+
+.theme-toggle.active {
+    animation: themeSwitch 0.3s ease-in-out;
+}
+
+@keyframes themeSwitch {
+    0% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.2) rotate(180deg); }
+    100% { transform: scale(1) rotate(360deg); }
+}
+
 .nav-controls {
     display: flex;
     align-items: center;
