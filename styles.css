@@ -131,6 +131,12 @@ body {
     transform: scale(0.95);
 }
 
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
 .hamburger {
     display: none;
     flex-direction: column;
@@ -1059,11 +1065,14 @@ body {
         display: flex;
     }
     
+    .nav-controls {
+        gap: 10px;
+    }
+    
     .theme-toggle {
         width: 45px;
         height: 45px;
         font-size: 1.3rem;
-        margin-left: 10px;
     }
 
     .nav-menu {
