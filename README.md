@@ -25,7 +25,17 @@ A modern, responsive website for the Eco Eats campaign focusing on reducing food
 
 ## Deployment
 
-This website is optimized for Vercel deployment with static file serving.
+### Netlify (Recommended)
+This project is optimized for Netlify deployment:
+
+1. **Quick Deploy**: Drag and drop your project folder to [netlify.com](https://www.netlify.com/)
+2. **Git Integration**: Connect your GitHub repository to Netlify for automatic deployments
+3. **Configuration**: `netlify.toml` and `_redirects` files are already configured
+
+### Vercel (Alternative)
+Also supports Vercel deployment with static file serving.
+
+See `DEPLOYMENT.md` for detailed instructions.
 
 ## Technologies Used
 
