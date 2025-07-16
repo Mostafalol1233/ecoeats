@@ -978,6 +978,16 @@ body {
     transform: translateY(0);
 }
 
+/* Preload Critical Images */
+.preload-image {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
     html {
@@ -1005,4 +1015,20 @@ body {
     .section {
         page-break-inside: avoid;
     }
+}
+
+/* Performance Optimizations */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Ensure proper loading */
+.hero-content {
+    will-change: transform;
+}
+
+.logo-circle {
+    will-change: box-shadow;
 }
