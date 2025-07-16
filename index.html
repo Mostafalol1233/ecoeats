@@ -60,8 +60,17 @@
                 <img src="attached_assets/file_00000000fa9061f482165a5546f2eedb_1752623499007.png" alt="Eco Eats Logo">
             </div>
             <h1 class="hero-title">Eco Eats</h1>
-            <p class="hero-slogan">The food is gold, don't let it mold!</p>
+            <div class="hero-slogan-container">
+                <p class="hero-slogan">The food is gold, don't let it mold!</p>
+                <button class="audio-button" id="playAudioBtn" title="اضغط لسماع الصوت">
+                    <i class="fas fa-volume-up"></i>
+                </button>
+            </div>
             <p class="hero-slogan-ar">الطعام ذهب، لا تدعه يفسد!</p>
+            <audio id="sloganAudio" preload="auto">
+                <source src="attached_assets/AUD-20250716-WA0022 (mp3cut.net)_1752662475057.mp3" type="audio/mpeg">
+                المتصفح الخاص بك لا يدعم تشغيل الصوت
+            </audio>
             <div class="hero-buttons">
                 <a href="#what-is" class="btn btn-primary">Learn More</a>
                 <a href="#contact" class="btn btn-secondary">Get Involved</a>
@@ -475,6 +484,60 @@
                 });
             } else {
                 console.error('Theme toggle button not found');
+            }
+
+            // Audio player functionality
+            const playAudioBtn = document.getElementById('playAudioBtn');
+            const sloganAudio = document.getElementById('sloganAudio');
+            
+            if (playAudioBtn && sloganAudio) {
+                playAudioBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    try {
+                        if (sloganAudio.paused) {
+                            // Play audio
+                            sloganAudio.play().then(() => {
+                                playAudioBtn.classList.add('playing');
+                                playAudioBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                                console.log('Audio started playing');
+                            }).catch(error => {
+                                console.error('Error playing audio:', error);
+                                alert('لا يمكن تشغيل الصوت. تأكد من أن المتصفح يدعم تشغيل الصوت.');
+                            });
+                        } else {
+                            // Pause audio
+                            sloganAudio.pause();
+                            playAudioBtn.classList.remove('playing');
+                            playAudioBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+                            console.log('Audio paused');
+                        }
+                    } catch (error) {
+                        console.error('Error with audio control:', error);
+                    }
+                });
+                
+                // Reset button when audio ends
+                sloganAudio.addEventListener('ended', function() {
+                    playAudioBtn.classList.remove('playing');
+                    playAudioBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+                    console.log('Audio finished playing');
+                });
+                
+                // Handle audio loading errors
+                sloganAudio.addEventListener('error', function(e) {
+                    console.error('Audio loading error:', e);
+                    playAudioBtn.style.opacity = '0.5';
+                    playAudioBtn.title = 'خطأ في تحميل الملف الصوتي';
+                });
+                
+                // Audio loaded successfully
+                sloganAudio.addEventListener('loadeddata', function() {
+                    console.log('Audio loaded successfully');
+                    playAudioBtn.title = 'اضغط لسماع الصوت';
+                });
+            } else {
+                console.error('Audio elements not found');
             }
 
             // Preload critical images for better performance
